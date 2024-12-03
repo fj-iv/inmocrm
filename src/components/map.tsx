@@ -1,19 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
-import L from 'leaflet';
-
-// Fix for default marker icon issue in Leaflet
-// ********************************************************************************
-// When using Leaflet with modern JavaScript bundlers, the default paths to the marker
-// icons can break because the bundler may change the directory structure or the way assets
-// are served. By explicitly setting the URLs for the marker icons, you ensure that Leaflet
-// can always find the icons, avoiding broken images on the map
-delete L.Icon.Default.prototype._getIconUrl
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-    iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-})
 
 interface MapProps {
     longitude: number
